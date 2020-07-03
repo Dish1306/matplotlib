@@ -74,16 +74,20 @@ env:
 matrix:
   include:
     - python: 3.6
+      arch: arm64
       env:
         - PINNEDVERS='-c requirements/testing/travis36minver.txt'
         - DELETE_FONT_CACHE=1
     - python: 3.7
+      arch: arm6
       env:
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: 3.8
+      arch: arm6
       env:
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: "nightly"
+      arch: arm6
       env:
         - PRE=--pre
     - os: osx
