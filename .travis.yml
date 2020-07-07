@@ -192,8 +192,9 @@ script:
     # The number of processes is hardcoded (-n2), because using too many
     # causes the Travis VM to run out of memory (since so many copies of
     # inkscape and ghostscript are running at the same time).
-    #python -mpytest -raR --maxfail=50 --timeout=300 --parallel=4 -g -m --durations=25 --cov-report= --cov=lib --log-level=DEBUG
-    python -u runtests.py --parallel=4 -g -m $TESTMODE $COVERAGE $USE_WHEEL_BUILD -- -rfEX 2>&1 | tee runtests.log
+    pip install pytest-xdist
+    python -mpytest -raR --maxfail=50 --timeout=300 -n 8 --durations=25 --cov-report= --cov=lib --log-level=DEBUG
+    #python -u runtests.py --parallel=4 -g -m $TESTMODE $COVERAGE $USE_WHEEL_BUILD -- -rfEX 2>&1 | tee runtests.log
 
 before_cache: |
   rm -rf $HOME/.cache/matplotlib/tex.cache
