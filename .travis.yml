@@ -57,7 +57,6 @@ addons:
       - ttf-wqy-zenhei
       - python3-tk
       - python-tk
-      - tkinter
 
 env:
   global:
@@ -110,6 +109,7 @@ matrix:
     - python: "nightly"
 
 before_install: |
+  arch: arm64
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH
