@@ -55,6 +55,9 @@ addons:
       - texlive-luatex
       - texlive-xetex
       - ttf-wqy-zenhei
+      - python3-tk
+      - python-tk
+      - tkinter
 
 env:
   global:
