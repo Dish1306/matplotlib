@@ -83,10 +83,12 @@ matrix:
     - python: 3.7
       arch: arm64
       env:
+        - PIP_NO_CACHE_DIR=off
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: 3.8
       arch: arm64
       env:
+        - PIP_NO_CACHE_DIR=off
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: "nightly"
       arch: arm64
