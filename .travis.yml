@@ -57,6 +57,7 @@ addons:
       - ttf-wqy-zenhei
       - python3-tk
       - python-tk
+      - python3-pip
 
 env:
   global:
@@ -141,6 +142,10 @@ install:
     fi
   - bash miniconda.sh -b -p /opt/conda
   - source /opt/conda/bin/activate
+  - echo $PATH
+  - which python || true
+  - which python3.8 || true
+  - python --version || true
   - conda update -y conda;
   - conda config --set always_yes yes
   - conda config --set auto_update_conda False
@@ -153,13 +158,12 @@ install:
     ccache -s
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
-    python3 -m pip install --upgrade pip
-    python3.8 -m pip install --upgrade pip
+   - python3 -m pip install --upgrade pip
+   - python3.8 -m pip install --upgrade pip
     python -mpip install --upgrade pip setuptools wheel
   - |
     # Install dependencies from PyPI.
     python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
-  - conda install -q anaconda-client pandas
   - |
     # Install optional dependencies from PyPI.
     # Sphinx is needed to run sphinxext tests
