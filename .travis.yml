@@ -57,7 +57,7 @@ addons:
       - ttf-wqy-zenhei
       - python3-tk
       - python-tk
-      - python3-pip
+      - libqpdf-dev
 
 env:
   global:
@@ -88,7 +88,6 @@ matrix:
     - python: 3.8
       arch: arm64
       env:
-        - PIP_NO_CACHE_DIR=off
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: "nightly"
       arch: arm64
@@ -158,8 +157,6 @@ install:
     ccache -s
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
-    python3 -m pip install --upgrade pip
-    python3.8 -m pip install --upgrade pip
     python -mpip install --upgrade pip setuptools wheel
   - |
     # Install dependencies from PyPI.
