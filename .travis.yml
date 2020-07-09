@@ -111,11 +111,11 @@ before_install: |
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH
-    git clone https://github.com/pybind/pybind11.git\
-    cd pybind11\
-    mkdir build\
-    cd build\
-    cmake ..\
+    git clone https://github.com/pybind/pybind11.git \
+    cd pybind11 \
+    mkdir build \
+    cd build \
+    cmake .. \
     make install
     ;;
   osx)
