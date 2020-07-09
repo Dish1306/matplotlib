@@ -78,6 +78,7 @@ matrix:
     - python: 3.6
       arch: arm64
       env:
+        - PIP_NO_CACHE_DIR=off
         - PINNEDVERS='-c requirements/testing/travis36minver.txt'
         - DELETE_FONT_CACHE=1
     - python: 3.7
@@ -141,6 +142,8 @@ before_install: |
   esac
 
 install:
+  - conda install -q cytoolz
+  - conda install -q anaconda-client requests coverage tornado pandas pikepdf pandocfilters lxml pyzmq MarkupSafe pyrsistent
   - |
     # Setup environment.
     ccache -s
