@@ -147,7 +147,7 @@ install:
   - conda info
   # avoids a python 3.7 problem
   - conda install -q cytoolz
-  - conda install -q anaconda-client pandas coverage tornado pandocfilters lxml pyzmq MarkupSafe
+  - conda install -q anaconda-client pikepdf pandas coverage tornado pandocfilters lxml pyzmq MarkupSafe
   - |
     # Setup environment.
     ccache -s
