@@ -76,15 +76,13 @@ env:
 matrix:
   include:
     - python: 3.6
-      arch: arm64
+      arch: amd64
       env:
-        - PIP_NO_CACHE_DIR=off
         - PINNEDVERS='-c requirements/testing/travis36minver.txt'
         - DELETE_FONT_CACHE=1
     - python: 3.7
-      arch: arm64
+      arch: amd64
       env:
-        - PIP_NO_CACHE_DIR=off
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: 3.8
       arch: arm64
@@ -96,7 +94,6 @@ matrix:
       env:
         - PRE=--pre
     - os: osx
-      arch: arm64
       language: generic  # https://github.com/travis-ci/travis-ci/issues/2312
       only: master
       cache:
@@ -142,7 +139,6 @@ before_install: |
   esac
 
 install:
-  - conda install -q anaconda-client pandas
   - |
     # Setup environment.
     ccache -s
@@ -154,6 +150,7 @@ install:
   - |
     # Install dependencies from PyPI.
     python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
+  - conda install -q anaconda-client pandas
   - |
     # Install optional dependencies from PyPI.
     # Sphinx is needed to run sphinxext tests
