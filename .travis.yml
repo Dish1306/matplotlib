@@ -55,8 +55,6 @@ addons:
       - texlive-luatex
       - texlive-xetex
       - ttf-wqy-zenhei
-      - python3-tk
-      - python-tk
       - libqpdf-dev
 
 env:
@@ -112,6 +110,7 @@ before_install: |
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH
+    sudo apt-get install libqpdf-dev
     ;;
   osx)
     set -e
