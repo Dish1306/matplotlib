@@ -142,8 +142,7 @@ before_install: |
   esac
 
 install:
-  - conda install -q cytoolz
-  - conda install -q anaconda-client requests coverage tornado pandas pikepdf pandocfilters lxml pyzmq MarkupSafe pyrsistent
+  - conda install -q anaconda-client pandas
   - |
     # Setup environment.
     ccache -s
