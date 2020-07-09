@@ -82,6 +82,7 @@ matrix:
     - python: 3.7
       arch: amd64
       env:
+        - PIP_NO_CACHE_DIR=off
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: 3.8
       arch: arm64
@@ -159,7 +160,7 @@ install:
     python -mpip install --upgrade pip setuptools wheel
   - |
     # Install dependencies from PyPI.
-    sudo python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
+    python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
   - |
     # Install optional dependencies from PyPI.
     # Sphinx is needed to run sphinxext tests
