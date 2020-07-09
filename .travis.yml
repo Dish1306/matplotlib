@@ -56,8 +56,6 @@ addons:
       - texlive-xetex
       - ttf-wqy-zenhei
       - libqpdf-dev
-      - pybind11-dev
-      - python-pybind11
 
 env:
   global:
@@ -113,7 +111,12 @@ before_install: |
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH
-    sudo apt-get install libqpdf-dev
+    git clone https://github.com/pybind/pybind11.git\
+    cd pybind11\
+    mkdir build\
+    cd build\
+    cmake ..\
+    make install
     ;;
   osx)
     set -e
