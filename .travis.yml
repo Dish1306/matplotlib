@@ -56,7 +56,7 @@ addons:
       - texlive-xetex
       - ttf-wqy-zenhei
       - libqpdf-dev
-      - py3-pybind11-dev
+      - python-pybind11-dev
 
 env:
   global:
