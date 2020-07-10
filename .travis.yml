@@ -89,7 +89,7 @@ matrix:
       env:
         - EXTRAREQS='-r requirements/testing/travis_extra.txt'
     - python: "nightly"
-      arch: arm64
+      arch: amd64
       env:
         - PRE=--pre
     - os: osx
